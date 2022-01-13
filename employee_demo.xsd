@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<em:schema xmlns:em ="http://www.w3.org/2001/XMLSchema">
+	<em:element name="Company" type="Employees" />
+    <em:complexType name="Employees">
+      <em:sequence>
+         <em:element name="Employee" type="Emp" minOccurs="1" maxOccurs="unbounded" />	
+      </em:sequence>
+    </em:complexType>
+    
+    <em:complexType name="Emp">
+      <em:sequence>
+         <em:element name="Emp-name" type="em:string" />
+         <em:element name="Emp-age" type="em:integer" />
+         <em:element name="Emp-salary" type="mysalary" />
+         <em:element name="Emp-emailid" type="emailAddress" />
+         <em:element name="Emp-Phonenum" type="em:integer" />
+         <em:element name="Emp-designation" type="em:string" />
+      </em:sequence>
+      <ems:attribute name="Emp_ID" type="ems:ID" use="required" />
+      
+      
+    </em:complexType>
+    
+    <em:simpleType name="mysalary">
+      <em:restriction base="em:decimal">
+         <em:minInclusive value="50000" />
+         <em:maxInclusive value="200000" />
+      </em:restriction>
+   </em:simpleType>
+   
+    <em:simpleType name="emailAddress"> 
+    <em:restriction base="em:string"> 
+      <em:pattern value="[^@]+@[^\.]+\..+"/> 
+    </em:restriction> 
+  </em:simpleType> 
+    
+</em:schema>
